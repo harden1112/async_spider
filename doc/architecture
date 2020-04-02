@@ -1,0 +1,15 @@
+// The architecture of the crawl system
+digraph {
+	node [shape=record]
+		fetcher [label="<f0> fetcher | <f1> PUSH | <f2> REQ | <f3> REP"]
+		controller [label="<f0> controller | {<f1> PULL | <f2> PUSH} | <f3> REP | <f4> REQ"]
+		parser [label="<f0> parser | {<f1> PULL | <f2> PUSH} | <f3> REQ"]
+		storage [label="<f0> storage | {<f1> PULL | <f2> database} | <f3> REQ"]
+			fetcher:f1 -> controller:f1
+			fetcher:f2 -> controller:f3
+			controller:f4 -> fetcher:f3
+			controller:f2 -> parser:f1
+			parser:f2 -> storage:f1
+			parser:f3 -> controller:f3
+			storage:f3 -> controller:f3
+}
