@@ -165,7 +165,10 @@ class ControllerDriver:
         print(reply_msg)
 
     async def send_request(self, msg):
-        await self._queue.put(msg)
+        msg_dict = {}
+        msg_dict["category"]='steam_score'
+        msg_dict["gam_id"] = msg
+        await self._queue.put(msg_dict)
 
 
     def create_tasks(self):
