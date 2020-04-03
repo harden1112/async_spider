@@ -44,35 +44,14 @@ The control service was the interfaces of the whole system.
 
 #### storage service
 
-users table:
-
-|   field   |   type    | description |
-| ----      | -------   | -------     |
-| id        | uint32    | auto increment key id |
-| steam_user_id  | uint64    | steam id |
 
 games table:
 
 |   field   |   type    | description |
 | ----      | -------   | -------     |
 | id        | uint32    | auto increment key id |
-| steam_game_id   | varchar(64)| steam game id |
+| app_id    | varchar(32)| game id  |
+| review    | varchar(32)| game score  |
+| number    | varchar(32)| game numbers|
+| per_cent  | varchar(32)| per cent |
 
-achievements table:
-
-|   field   |   type    | description |
-| ----      | -------   | -------     |
-| id        | uint32    | auto increment key id |
-| achievement | varchar(64)| steam game id of achievement |
-| description | varchar(128) | description of the achievement |
-| unlock_time | timestamp | unlock time stamp |
-| game_id | uint32 | id of the belonged game |
-| user_id | uint32 | id of the belonged user |
-
-friends table:
-
-|   field   |   type    | description |
-| ----      | -------   | -------     |
-| id        | uint32    | auto increment key id |
-| user_id   | uint32    | user id in user table |
-| steam_friend_id | uint64    | steam id of the friend |
