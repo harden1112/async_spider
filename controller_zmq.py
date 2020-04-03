@@ -167,7 +167,7 @@ class ControllerDriver:
     async def send_request(self, msg):
         msg_dict = {}
         msg_dict["category"]='steam_score'
-        msg_dict["gam_id"] = msg
+        msg_dict["game_id"] = msg
         await self._queue.put(msg_dict)
 
 
